@@ -724,6 +724,53 @@
                 box-shadow: inset 15px -8px 0 0 #D4AF37, 0 0 50px rgba(212, 175, 55, 0.6);
             }
         }
+
+        /* 2GIS Map Button */
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: transparent;
+            border: 1.5px solid rgba(212, 175, 55, 0.6);
+            border-radius: 50px;
+            color: #D4AF37;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .map-btn:hover::before {
+            opacity: 1;
+        }
+
+        .map-btn:hover {
+            border-color: #D4AF37;
+            color: #F9E4B7;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .map-btn-icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
     </style>
     <style>
         /* New Footer Styles */
@@ -871,10 +918,18 @@
                 <p
                     style="color: #D4AF37; font-size: 0.85rem; letter-spacing: 3px; margin-bottom: 12px; text-transform: uppercase; font-weight: 600;">
                     Мекен-жайымыз</p>
-                <p style="font-size: 1.15rem; color: #FFFFFF; line-height: 1.6; font-weight: 400;">
+                <p style="font-size: 1.15rem; color: #FFFFFF; line-height: 1.6; font-weight: 400; margin-bottom: 18px;">
                     Микрорайн "Нұр-Сити 2" <br>
                     дом 11, кв. 140
                 </p>
+                <a href="https://go.2gis.com/LDR8c" target="_blank" rel="noopener noreferrer" class="map-btn">
+                    <svg class="map-btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                            fill="currentColor" />
+                    </svg>
+                    Картада ашу · 2ГИС
+                </a>
             </div>
 
             <!-- Organizers Block -->
