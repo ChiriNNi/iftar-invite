@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на Ифтар - Рамадан Карим</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            background: radial-gradient(circle at center, #0c4a6e 0%, #052e46 100%);
+            color: #FFFFFF;
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Sophisticated Islamic Geometric Pattern Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-conic-gradient(from 0deg at 50% 50%,
+                    transparent 0deg,
+                    rgba(212, 175, 55, 0.03) 22.5deg,
+                    transparent 45deg,
+                    rgba(212, 175, 55, 0.03) 67.5deg,
+                    transparent 90deg,
+                    rgba(212, 175, 55, 0.03) 112.5deg,
+                    transparent 135deg,
+                    rgba(212, 175, 55, 0.03) 157.5deg,
+                    transparent 180deg),
+                repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(212, 175, 55, 0.02) 40px,
+                    rgba(212, 175, 55, 0.02) 41px);
+            background-size: 80px 80px, 60px 60px;
+            background-position: 0 0, 30px 30px;
+            pointer-events: none;
+            z-index: 0;
+            animation: patternRotate 120s linear infinite;
+        }
+
+        @keyframes patternRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Section Base */
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 3.5rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section.hero {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInZoom 1.5s ease;
+        }
+
+        @keyframes fadeInZoom {
+            from {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Section A: Hero with CSS Crescent Moon */
+        .crescent-moon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: transparent;
+            box-shadow:
+                inset 20px -10px 0 0 #D4AF37,
+                0 0 40px #D4AF37,
+                0 0 60px rgba(212, 175, 55, 0.5);
+            margin: 0 auto 2rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #F9E4B7;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        /* Section B: Precision Date Block */
+        .date-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 3rem 0;
+            width: 100%;
+        }
+
+        .date-month {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 6px;
+            color: #D4AF37;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .date-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .date-line {
+            height: 1.5px;
+            width: 60px;
+            background: #D4AF37;
+            position: relative;
+        }
+
+        .date-day-text {
+            position: absolute;
+            top: -20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #D4AF37;
+            text-transform: uppercase;
+        }
+
+        .date-day-text.left {
+            left: 0;
+        }
+
+        .date-day-text.right {
+            right: 0;
+        }
+
+        .date-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1;
+            margin: 0 1.5rem;
+        }
+
+        .date-address {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 1.6;
+            max-width: 350px;
+        }
+
+        /* Section C: Glassmorphism Message Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            line-height: 1.8;
+            margin: 2rem 0;
+            max-width: 500px;
+        }
+
+        .glass-card p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: #FFFFFF;
+        }
+
+        /* Section D: Modern RSVP Form */
+        .rsvp-form {
+            width: 100%;
+            max-width: 450px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #F9E4B7;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border: none;
+            border-bottom: 1.5px solid #D4AF37;
+            background: transparent;
+            color: white;
+            padding: 10px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-bottom-color: #F9E4B7;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        /* Custom Radio Buttons */
+        .attendance-options {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            padding-left: 30px;
+            user-select: none;
+        }
+
+        .radio-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .radio-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: #FFFFFF;
+            transition: color 0.3s ease;
+        }
+
+        /* Custom radio circle */
+        .radio-option .radio-label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 18px;
+            width: 18px;
+            background-color: transparent;
+            border: 1.5px solid #D4AF37;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        /* Checkmark */
+        .radio-option .radio-label:after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #D4AF37;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option:hover input~.radio-label {
+            color: #D4AF37;
+        }
+
+        .radio-option:hover input~.radio-label:before {
+            border-color: #F9E4B7;
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        .radio-option input:checked~.radio-label:before {
+            border-color: #D4AF37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .radio-option input:checked~.radio-label:after {
+            opacity: 1;
+        }
+
+        /* The Pulse Button */
+        .submit-button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(45deg, #D4AF37, #B8860B);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        .submit-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Section E: Footer Decoration */
+        .footer-decoration {
+            width: 100%;
+            padding: 3rem 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-line {
+            width: 80%;
+            max-width: 400px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #D4AF37, transparent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* Thank You Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 46, 70, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .thank-you-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 2px solid #D4AF37;
+            text-align: center;
+            max-width: 90%;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .thank-you-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+
+        .thank-you-message {
+            font-size: 1rem;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .close-button {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, #D4AF37, #B8860B);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #D4AF37;
+            animation: confetti-fall 3s linear forwards;
+            z-index: 2001;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Sticky Navigation Header */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(9, 58, 94, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 0.5px solid rgba(212, 175, 55, 0.3);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 8px 12px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: #D4AF37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #D4AF37;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 80%;
+        }
+
+        /* Hero section padding to account for fixed header */
+        section.hero {
+            padding-top: 80px;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .date-number {
+                font-size: 100px;
+            }
+
+            .date-line {
+                width: 80px;
+            }
+
+            .nav-link {
+                font-size: 13px;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .nav-menu {
+                gap: 15px;
+            }
+
+            .nav-link {
+                font-size: 10px;
+                padding: 6px 8px;
+            }
+        }
+
+        /* Custom Banner Styles */
+        .banner-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .banner-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .greeting-block {
+            margin-bottom: 2.5rem;
+            text-align: center;
+            animation: fadeInUp 1.5s ease 0.3s backwards;
+        }
+
+        .greeting-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            /* Adjusted for visual impact */
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-text-block {
+            max-width: 700px;
+            /* Wider for better reading */
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 1.5s ease 0.6s backwards;
+        }
+
+        .main-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            /* 18px might be too big on mobile, starting safe */
+            font-weight: 400;
+            color: #F0F0F0;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Adjusting Moon for Separator role */
+        .crescent-moon-separator {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: transparent;
+            box-shadow:
+                inset 15px -8px 0 0 #D4AF37,
+                0 0 30px rgba(212, 175, 55, 0.3);
+            margin: 0 auto 2.5rem;
+            /* Spacing before Date */
+            animation: pulse-glow 3s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            from {
+                box-shadow: inset 15px -8px 0 0 #D4AF37, 0 0 30px rgba(212, 175, 55, 0.3);
+            }
+
+            to {
+                box-shadow: inset 15px -8px 0 0 #D4AF37, 0 0 50px rgba(212, 175, 55, 0.6);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sticky Navigation Header - Keeping for navigation but making it transparent/subtle if needed. 
+         User didn't explicitly ask to remove it, but top image is priority. 
+         Let's keep it but ensure z-index is high. -->
+    <header class="nav-header">
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Басты бет</a></li> <!-- Changed to Kazakh for consistency -->
+                <li><a href="#about" class="nav-link">Шақыру</a></li>
+                <li><a href="#date" class="nav-link">Уақыты</a></li>
+                <li><a href="#rsvp" class="nav-link">Қатысу</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Unified Intro Section -->
+        <section id="home" class="visible" style="padding-top: 100px;">
+            <!-- 1. Greeting Block (Moved Top) -->
+
+            <div class="banner-container-flush" style="margin-top: -100px; width: 100%;">
+                <img src="photo.png" alt="Ramadan Iftar Banner" class="banner-image"
+                    style="width: 100%; display: block;">
+            </div>
+
+
+            <!-- 2. Image Block (Under Greeting) -->
+            <div class="banner-container">
+                <img src="banner.png" alt="Ramadan Iftar Banner" class="banner-image">
+            </div>
+
+            <!-- 3. Main Text Block (Under Image) -->
+
+
+            <div class="main-text-block" id="about"
+                style="border: 1px solid rgba(212, 175, 55, 0.6); padding: 30px 20px; margin: 40px auto; width: 85%; border-radius: 15px; text-align: center; background: rgba(0, 0, 0, 0.15);">
+                <p class="main-text" style="font-size: 1.2rem; line-height: 1.6; color: #ffffff;">
+                    <i>Қасиетті Рамазан айында ауызашар дастарханымызға бас қосуға шақырамыз.</i><br>
+                    <span style="display: block; margin-top: 15px; color: #D4AF37; font-weight: bold;">Сізді осы
+                        берекелі кештің қадірлі қонағы болуға құрметпен шақырамыз!</span>
+                </p>
+            </div>
+
+
+
+            <!-- 4. Graphic Separator (Moon) -->
+            <div class="crescent-moon-separator"></div>
+        </section>
+
+
+
+        <!-- 5. Lower Block: Date and Time -->
+        <section id="date" class="visible"
+            style="text-align: center; margin: 40px auto; padding: 20px; max-width: 500px; animation: fadeInUp 1.5s ease 0.9s backwards;">
+            <div
+                style="border-top: 1px solid rgba(212, 175, 55, 0.5); border-bottom: 1px solid rgba(212, 175, 55, 0.5); padding: 30px 0; position: relative;">
+                <div
+                    style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #D4AF37; letter-spacing: 6px; margin-bottom: 15px; text-transform: uppercase;">
+                    Ақпан</div>
+
+                <div
+                    style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 15px;">
+                    <div
+                        style="height: 1px; flex-grow: 1; background: linear-gradient(to left, rgba(212, 175, 55, 0.5), transparent); max-width: 60px;">
+                    </div>
+                    <span
+                        style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #FFFFFF; text-transform: uppercase; letter-spacing: 2px;">Сенбі</span>
+                    <span
+                        style="font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 700; color: #FFFFFF; line-height: 1;">28</span>
+                    <span
+                        style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #FFFFFF; text-transform: uppercase; letter-spacing: 2px;">Сенбі</span>
+                    <div
+                        style="height: 1px; flex-grow: 1; background: linear-gradient(to right, rgba(212, 175, 55, 0.5), transparent); max-width: 60px;">
+                    </div>
+                </div>
+
+                <div
+                    style="display: inline-block; margin-top: 10px; padding: 12px 30px; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 50px;">
+                    <span
+                        style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #F0F0F0; vertical-align: middle; opacity: 0.9;">УАҚЫТЫ:</span>
+                    <span
+                        style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: #D4AF37; margin-left: 12px; vertical-align: middle; text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);">18:45</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 35px; font-family: 'Montserrat', sans-serif;">
+                <p
+                    style="color: #D4AF37; font-size: 0.85rem; letter-spacing: 3px; margin-bottom: 12px; text-transform: uppercase; font-weight: 600;">
+                    Мекен-жайымыз</p>
+                <p style="font-size: 1.15rem; color: #FFFFFF; line-height: 1.6; font-weight: 400;">
+                    Микрорайн "Нұр-Сити 2" <br>
+                    дом 11, кв. 140
+                </p>
+            </div>
+        </section>
+
+
+
+        <!-- Section D: Modern RSVP Form -->
+        <section id="rsvp">
+            <h2>Қатысуыңызды растаңыз</h2>
+            <form class="rsvp-form" id="rsvpForm">
+                <div class="form-group">
+                    <label for="guestName">Сіздің есіміңіз</label>
+                    <input type="text" id="guestName" name="guestName" placeholder="Есіміңізді еңгізіңіз" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Қатысыңыз?</label>
+                    <div class="attendance-options">
+                        <label class="radio-option">
+                            <input type="radio" name="attendance" value="Приду" checked>
+                            <span class="radio-label">Қатысам</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="attendance" value="Не приду">
+                            <span class="radio-label">Қатысбайм</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="submit-button">Растау</button>
+            </form>
+        </section>
+
+        <!-- Section E: Footer Decoration -->
+        <footer class="footer-decoration">
+            <div class="footer-line"></div>
+            <p class="footer-text">Рамадан Карим</p>
+        </footer>
+    </div>
+
+    <!-- Thank You Overlay -->
+    <div class="overlay" id="thankYouOverlay">
+        <div class="thank-you-card">
+            <h2 class="thank-you-title">Спасибо!</h2>
+            <p class="thank-you-message">
+                Растауыңыз қабылданды. Сізді осы берекелі кеште асыға күтеміз!
+            </p>
+            <button class="close-button" onclick="closeOverlay()">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        // Intersection Observer for scroll reveal
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections except hero
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Create confetti effect
+        function createConfetti() {
+            const colors = ['#D4AF37', '#F9E4B7', '#B8860B', '#FFD700'];
+            const confettiCount = 60;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                confetti.style.width = (Math.random() * 8 + 6) + 'px';
+                confetti.style.height = (Math.random() * 8 + 6) + 'px';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 3500);
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('guestName').value,
+                attendance: document.querySelector('input[name="attendance"]:checked').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Save to localStorage
+            let rsvps = JSON.parse(localStorage.getItem('iftarRSVPs') || '[]');
+            rsvps.push(formData);
+            localStorage.setItem('iftarRSVPs', JSON.stringify(rsvps));
+
+            // Show thank you overlay
+            document.getElementById('thankYouOverlay').classList.add('active');
+
+            // Create confetti
+            createConfetti();
+
+            // Reset form
+            this.reset();
+        });
+
+        // Close overlay function
+        function closeOverlay() {
+            document.getElementById('thankYouOverlay').classList.remove('active');
+        }
+
+        // Smooth scroll and active link highlighting
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Remove active class from all links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+
+                // Add active class to clicked link
+                this.classList.add('active');
+
+                // Smooth scroll to section
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    const headerHeight = 60;
+                    const targetPosition = targetSection.offsetTop - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (window.scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
