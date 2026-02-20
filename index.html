@@ -725,6 +725,59 @@
             }
         }
     </style>
+    <style>
+        /* New Footer Styles */
+        .site-footer {
+            margin-top: 4rem;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(to top, rgba(9, 58, 94, 0.8), transparent);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-decoration-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            margin-bottom: 10px;
+        }
+
+        .footer-greeting {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #D4AF37;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .footer-subtext {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #FFFFFF;
+            font-weight: 300;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .footer-copyright {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -823,6 +876,20 @@
                     дом 11, кв. 140
                 </p>
             </div>
+
+            <!-- Organizers Block -->
+            <div style="margin-top: 40px; font-family: 'Montserrat', sans-serif;">
+                <div
+                    style="width: 40px; height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.6), transparent); margin: 0 auto 20px;">
+                </div>
+                <p
+                    style="color: rgba(255,255,255,0.5); font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px;">
+                    Ұйымдастырушылар</p>
+                <p
+                    style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: #F9E4B7; letter-spacing: 1px;">
+                    Жанат &amp; Меруерт
+                </p>
+            </div>
         </section>
 
 
@@ -830,7 +897,8 @@
         <!-- Section D: Modern RSVP Form -->
         <section id="rsvp">
             <h2>Қатысуыңызды растаңыз</h2>
-            <form class="rsvp-form" id="rsvpForm">
+            <form class="rsvp-form" id="rsvpForm"
+                action="https://api.sheetbest.com/sheets/ed6041a9-294d-4376-abb2-09ea989aaf4c" method="POST">
                 <div class="form-group">
                     <label for="guestName">Сіздің есіміңіз</label>
                     <input type="text" id="guestName" name="guestName" placeholder="Есіміңізді еңгізіңіз" required>
@@ -853,21 +921,26 @@
             </form>
         </section>
 
-        <!-- Section E: Footer Decoration -->
-        <footer class="footer-decoration">
-            <div class="footer-line"></div>
-            <p class="footer-text">Рамадан Карим</p>
+        <!-- Section E: Modern Footer -->
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-decoration-line"></div>
+                <h3 class="footer-greeting">Рамазан мүбәрак болсын!</h3>
+                <p class="footer-subtext">Ниеттеріңіз қабыл болсын 🤲</p>
+                <div class="footer-copyright">
+                    &copy; 2026. Барлық құқықтар қорғалған.
+                </div>
+            </div>
         </footer>
     </div>
 
-    <!-- Thank You Overlay -->
     <div class="overlay" id="thankYouOverlay">
         <div class="thank-you-card">
-            <h2 class="thank-you-title">Спасибо!</h2>
+            <h2 class="thank-you-title">Рахмет! 🤲</h2>
             <p class="thank-you-message">
-                Растауыңыз қабылданды. Сізді осы берекелі кеште асыға күтеміз!
+                Растауыңыз қабылданды.<br>Сізді осы берекелі ауызашар кеште асыға күтеміз!
             </p>
-            <button class="close-button" onclick="closeOverlay()">Закрыть</button>
+            <button class="close-button" onclick="closeOverlay()">Жабу</button>
         </div>
     </div>
 
@@ -915,19 +988,37 @@
         }
 
         // Handle form submission
-        document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+        document.getElementById('rsvpForm').addEventListener('submit', async function (e) {
             e.preventDefault();
 
+            const submitBtn = this.querySelector('.submit-button');
+            const originalText = submitBtn.textContent;
+
+            // Show loading state
+            submitBtn.textContent = 'Жіберілуде...';
+            submitBtn.disabled = true;
+
             const formData = {
-                name: document.getElementById('guestName').value,
+                guestName: document.getElementById('guestName').value,
                 attendance: document.querySelector('input[name="attendance"]:checked').value,
-                timestamp: new Date().toISOString()
+                timestamp: new Date().toLocaleString('kk-KZ', { timeZone: 'Asia/Almaty' })
             };
 
-            // Save to localStorage
+            // Save to localStorage as backup
             let rsvps = JSON.parse(localStorage.getItem('iftarRSVPs') || '[]');
             rsvps.push(formData);
             localStorage.setItem('iftarRSVPs', JSON.stringify(rsvps));
+
+            try {
+                await fetch('https://api.sheetbest.com/sheets/ed6041a9-294d-4376-abb2-09ea989aaf4c', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+            } catch (err) {
+                console.error('SheetBest error:', err);
+                // Fail gracefully — still show overlay
+            }
 
             // Show thank you overlay
             document.getElementById('thankYouOverlay').classList.add('active');
@@ -937,6 +1028,8 @@
 
             // Reset form
             this.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
         });
 
         // Close overlay function
